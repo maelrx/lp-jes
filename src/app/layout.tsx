@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
+import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 
 // Fonte display moderna e arredondada para títulos
 const outfit = Outfit({
@@ -39,8 +40,11 @@ export default function RootLayout({
     return (
         <html lang="pt-BR" suppressHydrationWarning className={`${outfit.variable} ${inter.variable}`}>
             <body className="font-body antialiased bg-[#0A0908] text-[#F5F0E8]">
-                {children}
+                <AnalyticsProvider>
+                    {children}
+                </AnalyticsProvider>
             </body>
         </html>
     );
 }
+
