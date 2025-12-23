@@ -48,7 +48,7 @@ export function ProcessSection() {
                         className="inline-block px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-6"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6 }}
                     >
                         O Que Acontece Após o Formulário
@@ -59,7 +59,7 @@ export function ProcessSection() {
                         style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         Transparência <span className="text-gradient-gold">Completa</span>
@@ -70,12 +70,8 @@ export function ProcessSection() {
                 <div className="max-w-4xl mx-auto">
                     <div className="grid md:grid-cols-4 gap-8">
                         {steps.map((item, i) => (
-                            <motion.div
+                            <div
                                 key={i}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ duration: 0.5, delay: i * 0.1 }}
                                 className="relative text-center"
                             >
                                 {/* Step number */}
@@ -91,7 +87,7 @@ export function ProcessSection() {
                                 {/* Content */}
                                 <h4 className="font-display font-semibold text-[#F5F0E8] text-xl mb-2">{item.title}</h4>
                                 <p className="text-[#A69F93] text-sm font-light leading-relaxed">{item.description}</p>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>

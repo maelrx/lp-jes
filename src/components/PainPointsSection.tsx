@@ -93,7 +93,7 @@ export function PainPointsSection() {
                         className="inline-block px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-6"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6 }}
                     >
                         6 Sinais de Que Você Precisa Reestruturar Sua Operação
@@ -104,7 +104,7 @@ export function PainPointsSection() {
                         style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         Reconhece Algum <span className="text-gradient-gold">Desses Cenários?</span>
@@ -114,7 +114,7 @@ export function PainPointsSection() {
                         className="text-[#A69F93] text-lg font-light max-w-2xl mx-auto"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         Proprietárias de clínicas de estética enfrentam os mesmos gargalos estruturais.
@@ -125,12 +125,8 @@ export function PainPointsSection() {
                 {/* 6 Cards Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                     {painPoints.map((pain, i) => (
-                        <motion.div
+                        <div
                             key={i}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.5, delay: i * 0.1 }}
                             className="group h-full glass-card rounded-2xl p-6 transition-all duration-500 hover:border-[#D4AF37]/30 hover:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.15)] hover:-translate-y-2"
                         >
                             {/* Icon */}
@@ -152,7 +148,7 @@ export function PainPointsSection() {
                             <p className="text-[#A69F93] text-sm font-light leading-relaxed">
                                 {pain.description}
                             </p>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 

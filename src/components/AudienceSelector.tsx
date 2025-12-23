@@ -105,7 +105,7 @@ export function AudienceSelector() {
                                                     <div className="pt-4 border-t border-coffee/10 mt-2">
                                                         <div className="flex items-center gap-2 text-gold-rose font-bold uppercase tracking-wider text-xs">
                                                             <ArrowRight className="w-3 h-3" />
-                                                            O Método Cúpula resolve:
+                                                            O Método Domus resolve:
                                                         </div>
                                                         <p className="mt-1 text-coffee font-medium text-sm">
                                                             {level === 'beginner' && "Módulo 1: Mentalidade de Dona & Vendas High Ticket"}
@@ -148,7 +148,7 @@ export function AudienceSelector() {
                                         <div className="pt-6 border-t border-coffee/10 mt-6">
                                             <div className="flex items-center gap-2 text-gold-rose font-bold uppercase tracking-wider text-sm">
                                                 <ArrowRight className="w-4 h-4" />
-                                                O Método Cúpula resolve isso com:
+                                                O Método Domus resolve isso com:
                                             </div>
                                             <p className="mt-2 text-coffee font-medium">
                                                 {selectedLevel === 'beginner' && "Módulo 1: Mentalidade de Dona & Vendas High Ticket"}

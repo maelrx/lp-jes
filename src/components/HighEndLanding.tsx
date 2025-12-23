@@ -219,7 +219,7 @@ export default function HighEndLanding() {
                                 transition={{ duration: 0.6, delay: 0.2 }}
                             >
                                 Diferente de consultores que nunca pisaram no chão de clínica, eu gerenciei operações reais por 7 anos.
-                                Desenvolvi o Protocolo Cúpula™ no campo de batalha, testando o que funciona para escalar faturamento
+                                Desenvolvi o Protocolo Domus™ no campo de batalha, testando o que funciona para escalar faturamento
                                 enquanto reduzia minha carga horária.
                             </motion.p>
 
@@ -247,7 +247,7 @@ export default function HighEndLanding() {
                 </Container>
             </Section>
 
-            {/* 4. Methodology Section (Protocolo Cúpula) */}
+            {/* 4. Methodology Section (Protocolo Domus) */}
             <Section
                 id="metodo"
                 style={{
@@ -280,7 +280,7 @@ export default function HighEndLanding() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.1 }}
                         >
-                            Protocolo Cúpula™: <span className="text-gradient-gold">3 Pilares Para Autonomia</span>
+                            Protocolo Domus™: <span className="text-gradient-gold">3 Pilares Para Autonomia</span>
                         </motion.h2>
 
                         <motion.p
@@ -321,12 +321,8 @@ export default function HighEndLanding() {
                                 author: "Ana Paula R., Biomédica Esteta"
                             }
                         ].map((pillar, i) => (
-                            <motion.div
+                            <div
                                 key={i}
-                                initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ duration: 0.5, delay: i * 0.15 }}
                                 className="h-full glass-card rounded-2xl p-6 md:p-8 transition-all duration-500 hover:border-[#D4AF37]/30 hover:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.15)] hover:-translate-y-2 group"
                             >
                                 {/* Icon */}
@@ -356,7 +352,7 @@ export default function HighEndLanding() {
                                     <p className="text-[#E8D5A3] font-display italic text-sm mb-2">{pillar.quote}</p>
                                     <p className="text-[#6B6560] text-xs">— {pillar.author}</p>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </Container>
@@ -368,113 +364,7 @@ export default function HighEndLanding() {
             {/* 6. Social Proof Section (Case Study) */}
             <SocialProofSection />
 
-            {/* 7. Qualification Section */}
-            <Section
-                style={{
-                    background: `
-                        radial-gradient(ellipse 40% 30% at 80% 50%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
-                        linear-gradient(180deg, #12100E 0%, #0A0908 100%)
-                    `
-                } as React.CSSProperties}
-            >
-                {/* Noise */}
-                <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none" />
 
-                <Container>
-                    <div className="text-center mb-12">
-                        <motion.span
-                            className="inline-block px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-6"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            Qualificação
-                        </motion.span>
-
-                        <motion.h2
-                            className="font-display font-bold text-[#F5F0E8]"
-                            style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)" }}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                        >
-                            Para Quem Este Método <span className="text-gradient-gold">Foi Desenvolvido</span>
-                        </motion.h2>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                        {/* Para você se */}
-                        <motion.div
-                            className="glass-card p-8 rounded-2xl border-[#D4AF37]/20 h-full"
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <h3 className="font-display font-semibold text-[#D4AF37] text-xl mb-6 flex items-center gap-3">
-                                <CheckCircle2 className="w-6 h-6" />
-                                Para Você Se:
-                            </h3>
-                            <ul className="space-y-4">
-                                {[
-                                    "Clínica estabelecida há 2+ anos",
-                                    "Faturamento entre R$ 30k e R$ 150k/mês",
-                                    "Possui equipe (mínimo 1 pessoa além de você)",
-                                    "Identifica que o problema é estrutural",
-                                    "Está disposta a implementar processos",
-                                    "Pode investir R$ 9.000 em mentoria"
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-[#A69F93] text-sm">
-                                        <div className="w-1.5 h-1.5 bg-[#D4AF37] rounded-full mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-
-                        {/* Não posso ajudar se */}
-                        <motion.div
-                            className="glass-card p-8 rounded-2xl border-red-900/20 h-full"
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <h3 className="font-display font-semibold text-red-400 text-xl mb-6 flex items-center gap-3">
-                                <X className="w-6 h-6" />
-                                Não Posso Ajudar Se:
-                            </h3>
-                            <ul className="space-y-4">
-                                {[
-                                    "Clínica com menos de 1 ano de operação",
-                                    "Faturamento abaixo de R$ 30k/mês",
-                                    "Atua sozinha sem intenção de contratar",
-                                    "Busca 'fórmula mágica' sem implementação",
-                                    "Não está disposta a delegar",
-                                    "Sem orçamento para investimento agora"
-                                ].map((item, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-[#6B6560] text-sm">
-                                        <div className="w-1.5 h-1.5 bg-red-900/60 rounded-full mt-2" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    </div>
-
-                    <motion.p
-                        className="text-center text-[#6B6560] mt-8 max-w-xl mx-auto"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                    >
-                        Se você está na coluna da esquerda, agende o diagnóstico para confirmar o fit estratégico.
-                    </motion.p>
-                </Container>
-            </Section>
 
             {/* 8. Process Section */}
             <ProcessSection />
@@ -535,28 +425,7 @@ export default function HighEndLanding() {
             {/* 10. Final CTA Section */}
             <FinalCTASection />
 
-            {/* Trust Indicators */}
-            <div className="bg-gradient-to-r from-[#12100E] via-[#1E1B17] to-[#12100E] border-y border-[#D4AF37]/10 relative z-20">
-                <Container>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-10">
-                        {[
-                            { icon: <ShieldCheck className="w-7 h-7 text-[#D4AF37]" />, text: "Compra Segura" },
-                            { icon: <Shield className="w-7 h-7 text-[#D4AF37]" />, text: "Satisfação Garantida" },
-                            { icon: <Lock className="w-7 h-7 text-[#D4AF37]" />, text: "Privacidade Protegida" },
-                            { icon: <BadgeCheck className="w-7 h-7 text-[#D4AF37]" />, text: "Garantia de 15 Dias" }
-                        ].map((item, i) => (
-                            <div key={i} className="flex flex-col md:flex-row items-center justify-center gap-3 text-center md:text-left">
-                                <div className="p-3 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20">
-                                    {item.icon}
-                                </div>
-                                <span className="text-[#A69F93] font-medium text-sm uppercase tracking-wider">
-                                    {item.text}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </Container>
-            </div>
+
 
             {/* Footer */}
             <footer className="bg-[#0A0908] text-[#A69F93] py-16 border-t border-[#D4AF37]/10">
@@ -583,7 +452,7 @@ export default function HighEndLanding() {
 
                         {/* Copyright */}
                         <p className="text-xs tracking-widest text-[#6B6560]">
-                            © 2024 Jéssica Messias. Todos os direitos reservados.
+                            © 2026 Jéssica Messias. Todos os direitos reservados.
                         </p>
                     </div>
                 </Container>

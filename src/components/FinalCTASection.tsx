@@ -48,7 +48,7 @@ export function FinalCTASection() {
                         style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6 }}
                     >
                         Sua <span className="text-gradient-gold">Decisão Final</span>
@@ -58,7 +58,7 @@ export function FinalCTASection() {
                         className="text-[#A69F93] text-lg font-light"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         Você tem duas opções para os próximos 90 dias:
@@ -72,8 +72,8 @@ export function FinalCTASection() {
                         className="h-full rounded-2xl glass-card border-[#6B6560]/20 p-8 relative"
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         <h3 className="font-display font-semibold text-[#6B6560] text-xl mb-6 flex items-center gap-3">
                             <span className="w-8 h-8 rounded-full border border-[#6B6560]/50 flex items-center justify-center text-sm">A</span>
@@ -94,8 +94,8 @@ export function FinalCTASection() {
                         className="h-full rounded-2xl glass-card p-8 relative border-2 border-[#D4AF37]/50 shadow-[0_0_60px_rgba(212,175,55,0.15)]"
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         {/* Recommended Badge */}
                         <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 bg-gradient-to-r from-[#D4AF37] to-[#A68B2A] text-[#0A0908] text-xs font-bold uppercase tracking-widest rounded-full shadow-[0_0_20px_rgba(212,175,55,0.4)]">

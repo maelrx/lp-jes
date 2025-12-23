@@ -90,7 +90,7 @@ export function RoadmapSection() {
                         className="inline-block px-4 py-2 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-xs font-semibold tracking-widest uppercase mb-6"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6 }}
                     >
                         Método Novo Nível | 90 Dias
@@ -101,7 +101,7 @@ export function RoadmapSection() {
                         style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         Estrutura de <span className="text-gradient-gold">Implementação</span>
@@ -111,7 +111,7 @@ export function RoadmapSection() {
                         className="text-[#A69F93] text-lg font-light max-w-2xl mx-auto"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         Não é curso gravado. É mentoria de implementação com suporte semanal.
@@ -135,8 +135,8 @@ export function RoadmapSection() {
                                 key={i}
                                 initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.6, delay: i * 0.15 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
                                 className={`relative lg:grid lg:grid-cols-2 lg:gap-16 ${i > 0 ? 'lg:mt-8' : ''}`}
                             >
                                 {/* Content */}
@@ -181,20 +181,16 @@ export function RoadmapSection() {
                 {/* Deliverables */}
                 <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                     {deliverables.map((item, i) => (
-                        <motion.div
+                        <div
                             key={i}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.5, delay: i * 0.1 }}
-                            className="text-center p-6 rounded-xl glass-card hover:border-[#D4AF37]/30 transition-all"
+                            className="text-center p-6 rounded-xl glass-card hover:border-[#D4AF37]/30 transition-all duration-300"
                         >
                             <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#D4AF37]/20 to-transparent border border-[#D4AF37]/20 flex items-center justify-center mx-auto mb-4">
                                 <item.icon className="w-7 h-7 text-[#D4AF37]" />
                             </div>
                             <h4 className="font-display font-semibold text-[#F5F0E8] text-xl mb-2">{item.title}</h4>
                             <p className="text-[#A69F93] text-sm font-light">{item.description}</p>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
