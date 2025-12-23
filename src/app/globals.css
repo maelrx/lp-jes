@@ -165,6 +165,49 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   SCROLL ANIMATIONS - Intersection Observer Based
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Estado inicial - antes de entrar no viewport */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Estado animado - quando entra no viewport */
+.scroll-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays para cards em grid */
+.scroll-animate[data-delay="1"] {
+    transition-delay: 0ms;
+}
+
+.scroll-animate[data-delay="2"] {
+    transition-delay: 80ms;
+}
+
+.scroll-animate[data-delay="3"] {
+    transition-delay: 160ms;
+}
+
+.scroll-animate[data-delay="4"] {
+    transition-delay: 240ms;
+}
+
+.scroll-animate[data-delay="5"] {
+    transition-delay: 320ms;
+}
+
+.scroll-animate[data-delay="6"] {
+    transition-delay: 400ms;
+}
+
+/* ═══════════════════════════════════════════════════════════════
    SCROLLBAR - Premium Dark
    ═══════════════════════════════════════════════════════════════ */
 

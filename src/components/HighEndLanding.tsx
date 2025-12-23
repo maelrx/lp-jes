@@ -28,6 +28,7 @@ import { RoadmapSection } from "./RoadmapSection";
 import { SocialProofSection } from "./SocialProofSection";
 import { ProcessSection } from "./ProcessSection";
 import { FinalCTASection } from "./FinalCTASection";
+import { ScrollAnimate } from "./ScrollAnimate";
 
 // --- Utility Components ---
 
@@ -321,38 +322,37 @@ export default function HighEndLanding() {
                                 author: "Ana Paula R., Biomédica Esteta"
                             }
                         ].map((pillar, i) => (
-                            <div
-                                key={i}
-                                className="h-full glass-card rounded-2xl p-6 md:p-8 transition-all duration-500 hover:border-[#D4AF37]/30 hover:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.15)] hover:-translate-y-2 group"
-                            >
-                                {/* Icon */}
-                                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#1E1B17] to-[#0A0908] border border-[#D4AF37]/20 flex items-center justify-center mb-6 group-hover:border-[#D4AF37]/40 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-all">
-                                    <pillar.icon className="w-7 h-7 text-[#D4AF37]" />
-                                </div>
+                            <ScrollAnimate key={i} delay={i + 1} className="h-full">
+                                <div className="h-full glass-card rounded-2xl p-6 md:p-8 transition-all duration-500 hover:border-[#D4AF37]/30 hover:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.15)] hover:-translate-y-2 group">
+                                    {/* Icon */}
+                                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#1E1B17] to-[#0A0908] border border-[#D4AF37]/20 flex items-center justify-center mb-6 group-hover:border-[#D4AF37]/40 group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] transition-all">
+                                        <pillar.icon className="w-7 h-7 text-[#D4AF37]" />
+                                    </div>
 
-                                {/* Title */}
-                                <h3 className="text-sm font-bold tracking-widest text-[#D4AF37] uppercase mb-4">
-                                    {pillar.title}
-                                </h3>
+                                    {/* Title */}
+                                    <h3 className="text-sm font-bold tracking-widest text-[#D4AF37] uppercase mb-4">
+                                        {pillar.title}
+                                    </h3>
 
-                                {/* Before */}
-                                <div className="mb-4">
-                                    <span className="text-[10px] text-[#6B6560] uppercase tracking-wider font-semibold">Situação Atual:</span>
-                                    <p className="text-[#A69F93] text-sm mt-1">{pillar.before}</p>
-                                </div>
+                                    {/* Before */}
+                                    <div className="mb-4">
+                                        <span className="text-[10px] text-[#6B6560] uppercase tracking-wider font-semibold">Situação Atual:</span>
+                                        <p className="text-[#A69F93] text-sm mt-1">{pillar.before}</p>
+                                    </div>
 
-                                {/* Result */}
-                                <div className="mb-6 p-4 bg-[#D4AF37]/10 rounded-xl border border-[#D4AF37]/20">
-                                    <span className="text-[10px] text-[#D4AF37] uppercase tracking-wider font-bold">Resultado:</span>
-                                    <p className="text-[#F5F0E8] text-sm font-medium mt-1">{pillar.result}</p>
-                                </div>
+                                    {/* Result */}
+                                    <div className="mb-6 p-4 bg-[#D4AF37]/10 rounded-xl border border-[#D4AF37]/20">
+                                        <span className="text-[10px] text-[#D4AF37] uppercase tracking-wider font-bold">Resultado:</span>
+                                        <p className="text-[#F5F0E8] text-sm font-medium mt-1">{pillar.result}</p>
+                                    </div>
 
-                                {/* Quote */}
-                                <div className="border-t border-[#D4AF37]/10 pt-4">
-                                    <p className="text-[#E8D5A3] font-display italic text-sm mb-2">{pillar.quote}</p>
-                                    <p className="text-[#6B6560] text-xs">— {pillar.author}</p>
+                                    {/* Quote */}
+                                    <div className="border-t border-[#D4AF37]/10 pt-4">
+                                        <p className="text-[#E8D5A3] font-display italic text-sm mb-2">{pillar.quote}</p>
+                                        <p className="text-[#6B6560] text-xs">— {pillar.author}</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </ScrollAnimate>
                         ))}
                     </div>
                 </Container>

@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, FileText, Calendar, Headphones } from "lucide-react";
+import { ScrollAnimate } from "./ScrollAnimate";
 
 const phases = [
     {
@@ -181,16 +182,15 @@ export function RoadmapSection() {
                 {/* Deliverables */}
                 <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
                     {deliverables.map((item, i) => (
-                        <div
-                            key={i}
-                            className="text-center p-6 rounded-xl glass-card hover:border-[#D4AF37]/30 transition-all duration-300"
-                        >
-                            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#D4AF37]/20 to-transparent border border-[#D4AF37]/20 flex items-center justify-center mx-auto mb-4">
-                                <item.icon className="w-7 h-7 text-[#D4AF37]" />
+                        <ScrollAnimate key={i} delay={i + 1}>
+                            <div className="text-center p-6 rounded-xl glass-card hover:border-[#D4AF37]/30 transition-all duration-300">
+                                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#D4AF37]/20 to-transparent border border-[#D4AF37]/20 flex items-center justify-center mx-auto mb-4">
+                                    <item.icon className="w-7 h-7 text-[#D4AF37]" />
+                                </div>
+                                <h4 className="font-display font-semibold text-[#F5F0E8] text-xl mb-2">{item.title}</h4>
+                                <p className="text-[#A69F93] text-sm font-light">{item.description}</p>
                             </div>
-                            <h4 className="font-display font-semibold text-[#F5F0E8] text-xl mb-2">{item.title}</h4>
-                            <p className="text-[#A69F93] text-sm font-light">{item.description}</p>
-                        </div>
+                        </ScrollAnimate>
                     ))}
                 </div>
 

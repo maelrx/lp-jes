@@ -11,6 +11,7 @@ import {
     Flame,
     ArrowRight
 } from "lucide-react";
+import { ScrollAnimate } from "./ScrollAnimate";
 
 const painPoints = [
     {
@@ -125,30 +126,29 @@ export function PainPointsSection() {
                 {/* 6 Cards Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                     {painPoints.map((pain, i) => (
-                        <div
-                            key={i}
-                            className="group h-full glass-card rounded-2xl p-6 transition-all duration-500 hover:border-[#D4AF37]/30 hover:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.15)] hover:-translate-y-2"
-                        >
-                            {/* Icon */}
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1E1B17] to-[#0A0908] border border-[#D4AF37]/20 flex items-center justify-center mb-4 group-hover:border-[#D4AF37]/40 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all">
-                                <pain.icon className="w-6 h-6 text-[#D4AF37]" />
+                        <ScrollAnimate key={i} delay={i + 1} className="h-full">
+                            <div className="group h-full glass-card rounded-2xl p-6 transition-all duration-500 hover:border-[#D4AF37]/30 hover:shadow-[0_20px_60px_-15px_rgba(212,175,55,0.15)] hover:-translate-y-2">
+                                {/* Icon */}
+                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1E1B17] to-[#0A0908] border border-[#D4AF37]/20 flex items-center justify-center mb-4 group-hover:border-[#D4AF37]/40 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all">
+                                    <pain.icon className="w-6 h-6 text-[#D4AF37]" />
+                                </div>
+
+                                {/* Category */}
+                                <span className="text-[#D4AF37] text-[10px] font-semibold tracking-[0.2em] uppercase">
+                                    {pain.category}
+                                </span>
+
+                                {/* Quote */}
+                                <h3 className="font-display font-semibold text-[#F5F0E8] text-xl mt-2 mb-3">
+                                    "{pain.quote}"
+                                </h3>
+
+                                {/* Description */}
+                                <p className="text-[#A69F93] text-sm font-light leading-relaxed">
+                                    {pain.description}
+                                </p>
                             </div>
-
-                            {/* Category */}
-                            <span className="text-[#D4AF37] text-[10px] font-semibold tracking-[0.2em] uppercase">
-                                {pain.category}
-                            </span>
-
-                            {/* Quote */}
-                            <h3 className="font-display font-semibold text-[#F5F0E8] text-xl mt-2 mb-3">
-                                "{pain.quote}"
-                            </h3>
-
-                            {/* Description */}
-                            <p className="text-[#A69F93] text-sm font-light leading-relaxed">
-                                {pain.description}
-                            </p>
-                        </div>
+                        </ScrollAnimate>
                     ))}
                 </div>
 

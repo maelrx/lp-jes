@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { ScrollAnimate } from "./ScrollAnimate";
 
 const steps = [
     {
@@ -70,10 +71,7 @@ export function ProcessSection() {
                 <div className="max-w-4xl mx-auto">
                     <div className="grid md:grid-cols-4 gap-8">
                         {steps.map((item, i) => (
-                            <div
-                                key={i}
-                                className="relative text-center"
-                            >
+                            <ScrollAnimate key={i} delay={i + 1} className="relative text-center">
                                 {/* Step number */}
                                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1E1B17] to-[#0A0908] border-2 border-[#D4AF37] flex items-center justify-center mx-auto mb-4 shadow-[0_0_30px_rgba(212,175,55,0.2)]">
                                     <span className="text-[#D4AF37] font-display text-2xl font-bold">{item.step}</span>
@@ -87,7 +85,7 @@ export function ProcessSection() {
                                 {/* Content */}
                                 <h4 className="font-display font-semibold text-[#F5F0E8] text-xl mb-2">{item.title}</h4>
                                 <p className="text-[#A69F93] text-sm font-light leading-relaxed">{item.description}</p>
-                            </div>
+                            </ScrollAnimate>
                         ))}
                     </div>
                 </div>
