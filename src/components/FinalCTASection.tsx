@@ -66,7 +66,7 @@ export function FinalCTASection() {
                 </div>
 
                 {/* Options Grid */}
-                <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
+                <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12 pt-6 overflow-visible">
                     {/* Option A - Continuar Sozinha */}
                     <motion.div
                         className="h-full rounded-2xl glass-card border-[#6B6560]/20 p-8 relative"
