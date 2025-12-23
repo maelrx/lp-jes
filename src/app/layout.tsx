@@ -24,6 +24,10 @@ export const metadata: Metadata = {
     description: "Receba um relatório completo que identifica gargalos em processos, equipe, conversão e margem — com roadmap de 90 dias. 100% gratuito.",
     keywords: ["clínica de estética", "gestão de clínicas", "consultoria", "mentoria", "processos", "conversão"],
     authors: [{ name: "Jéssica Messias" }],
+    icons: {
+        icon: "/images/logowhite.png",
+        apple: "/images/logowhite.png",
+    },
     openGraph: {
         title: "Diagnóstico Gratuito para Clínicas de Estética",
         description: "Mapeamento de gargalos operacionais com plano de ação de 90 dias.",

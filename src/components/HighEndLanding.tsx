@@ -430,8 +430,8 @@ export default function HighEndLanding() {
             {/* Footer */}
             <footer className="bg-[#0A0908] text-[#A69F93] py-16 border-t border-[#D4AF37]/10">
                 <Container>
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                        {/* Logo */}
+                    <div className="flex flex-col items-center gap-6 text-center">
+                        {/* Logo Centralizada */}
                         <div className="flex items-center gap-3">
                             <Image src="/images/logowhite.png" alt="Jéssica Messias" width={60} height={60} className="w-15 h-15 object-contain" />
                             <div className="text-xl font-display tracking-widest">
@@ -440,20 +440,16 @@ export default function HighEndLanding() {
                             </div>
                         </div>
 
-                        {/* Social */}
-                        <div className="flex items-center gap-6">
-                            <a href="https://instagram.com/jessicamessias" target="_blank" rel="noopener noreferrer" className="hover:text-[#D4AF37] transition-colors">
-                                <Instagram className="w-5 h-5" />
-                            </a>
-                            <a href="mailto:contato@jessicamessias.com.br" className="text-sm hover:text-[#D4AF37] transition-colors">
-                                contato@jessicamessias.com.br
-                            </a>
-                        </div>
-
-                        {/* Copyright */}
+                        {/* Copyright abaixo da logo */}
                         <p className="text-xs tracking-widest text-[#6B6560]">
                             © 2026 Jéssica Messias. Todos os direitos reservados.
                         </p>
+
+                        {/* Instagram */}
+                        <a href="https://www.instagram.com/jessicanmessias/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#D4AF37] transition-colors">
+                            <Instagram className="w-5 h-5" />
+                            <span className="text-sm">@jessicanmessias</span>
+                        </a>
                     </div>
                 </Container>
             </footer>
