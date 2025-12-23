@@ -1,0 +1,203 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   Fontes carregadas via next/font/google no layout.tsx
+   ═══════════════════════════════════════════════════════════════ */
+
+@theme {
+    /* ═══════════════════════════════════════════════════════════════
+       TYPOGRAPHY - Premium Modern
+       ═══════════════════════════════════════════════════════════════ */
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    /* ═══════════════════════════════════════════════════════════════
+       DARK HIGH-TICKET PALETTE
+       ═══════════════════════════════════════════════════════════════ */
+
+    /* Base escura - Profundidade café */
+    --color-bg-primary: #0A0908;
+    --color-bg-secondary: #12100E;
+    --color-bg-tertiary: #1A1714;
+    --color-bg-elevated: #221F1B;
+    --color-bg-card: #1E1B17;
+
+    /* Ouro - Destaque Premium */
+    --color-gold: #D4AF37;
+    --color-gold-soft: #E8D5A3;
+    --color-gold-dark: #A68B2A;
+
+    /* Texto */
+    --color-text-primary: #F5F0E8;
+    --color-text-secondary: #A69F93;
+    --color-text-muted: #6B6560;
+
+    /* Bordas */
+    --color-border-subtle: rgba(212, 175, 55, 0.1);
+    --color-border-gold: rgba(212, 175, 55, 0.3);
+
+    /* ═══════════════════════════════════════════════════════════════
+       GRADIENTS
+       ═══════════════════════════════════════════════════════════════ */
+    --gradient-hero: linear-gradient(135deg, #0A0908 0%, #1A1714 40%, #12100E 100%);
+    --gradient-section: linear-gradient(180deg, #12100E 0%, #0A0908 100%);
+    --gradient-card: linear-gradient(145deg, #1E1B17 0%, #151311 100%);
+    --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #A68B2A 100%);
+    --gradient-gold-text: linear-gradient(90deg, #D4AF37 0%, #E8D5A3 50%, #D4AF37 100%);
+
+    /* Radial glows */
+    --glow-gold: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    --glow-gold-strong: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 60%);
+
+    /* ═══════════════════════════════════════════════════════════════
+       TYPOGRAPHY SCALE
+       ═══════════════════════════════════════════════════════════════ */
+    --text-display: clamp(3rem, 6vw + 1rem, 5rem);
+    --text-h1: clamp(2.25rem, 4vw + 1rem, 3.5rem);
+    --text-h2: clamp(1.75rem, 3vw + 0.5rem, 2.5rem);
+    --text-h3: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+    --text-body: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
+    --text-small: clamp(0.875rem, 0.3vw + 0.75rem, 0.9375rem);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════ */
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-bg-primary);
+}
+
+body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   UTILITIES - Glass, Glow, Gradients
+   ═══════════════════════════════════════════════════════════════ */
+
+@utility glass-card {
+    background: rgba(30, 27, 23, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+@utility glass-card-hover {
+    &:hover {
+        border-color: rgba(212, 175, 55, 0.25);
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.5),
+            0 0 40px rgba(212, 175, 55, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        transform: translateY(-4px);
+    }
+}
+
+@utility gold-glow {
+    box-shadow:
+        0 0 20px rgba(212, 175, 55, 0.2),
+        0 0 40px rgba(212, 175, 55, 0.1);
+}
+
+@utility gold-border {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.4) 0%, transparent 50%, rgba(212, 175, 55, 0.2) 100%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+    }
+}
+
+@utility bg-noise {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.5;
+    }
+
+    &>* {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+@utility gradient-mesh {
+    background:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+        var(--gradient-hero);
+}
+
+@utility text-gradient-gold {
+    background: linear-gradient(90deg, #D4AF37 0%, #E8D5A3 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR - Premium Dark
+   ═══════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-bg-elevated);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-gold-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SELECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+::selection {
+    background-color: var(--color-gold);
+    color: var(--color-bg-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FONT CLASSES
+   ═══════════════════════════════════════════════════════════════ */
+
+.font-display {
+    font-family: var(--font-display);
+}
+
+.font-body {
+    font-family: var(--font-body);
+}
