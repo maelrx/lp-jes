@@ -107,7 +107,16 @@ export function HeroSection() {
                             </motion.div>
 
                             {/* Container da imagem */}
-                            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card gold-border">
+                            <motion.div
+                                className="relative aspect-[3/4] rounded-2xl overflow-hidden glass-card gold-border"
+                                initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                                transition={{
+                                    duration: 1.2,
+                                    delay: 0.1,
+                                    ease: [0.25, 0.46, 0.45, 0.94]
+                                }}
+                            >
                                 <Image
                                     src="/images/jessica.webp"
                                     alt="Jéssica Messias - Especialista em Gestão de Clínicas de Estética"
@@ -131,7 +140,7 @@ export function HeroSection() {
                                         </p>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </motion.div>
 
@@ -226,7 +235,7 @@ export function HeroSection() {
                         </motion.div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 }
