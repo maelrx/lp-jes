@@ -4,9 +4,12 @@ import React from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, Check, Sparkles } from "lucide-react";
+import { useAnalytics } from "./AnalyticsProvider";
+import { getConversionUrl } from "../lib/analytics";
 
 export function HeroSection() {
     const { scrollYProgress } = useScroll();
+    const { trackCtaClick } = useAnalytics();
 
     // Parallax: imagem move mais devagar (efeito de profundidade)
     const imageY = useTransform(scrollYProgress, [0, 0.5], [0, 150]);
@@ -179,9 +182,10 @@ export function HeroSection() {
                             transition={{ duration: 0.8, delay: 0.5 }}
                         >
                             <a
-                                href="https://forms.jessicamessias.com.br"
+                                href={getConversionUrl("https://forms.jessicamessias.com.br")}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => trackCtaClick('hero_section', 'ACESSAR MEU DIAGNÓSTICO GRATUITO')}
                                 className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#A68B2A] text-[#0A0908] font-display font-bold tracking-wider uppercase rounded-lg px-8 py-5 text-sm overflow-hidden transition-all duration-300 hover:shadow-[0_0_40px_rgba(212,175,55,0.4)] hover:scale-[1.02]"
                             >
                                 <span className="relative z-10">ACESSAR MEU DIAGNÓSTICO GRATUITO</span>

@@ -10,7 +10,7 @@ const generateId = (): string => {
 };
 
 // Get or create visitor ID (persisted in localStorage)
-const getVisitorId = (): string => {
+export const getVisitorId = (): string => {
     if (typeof window === 'undefined') return '';
 
     let visitorId = localStorage.getItem('lp_visitor_id');
@@ -22,7 +22,7 @@ const getVisitorId = (): string => {
 };
 
 // Get or create session ID (persisted in sessionStorage)
-const getSessionId = (): string => {
+export const getSessionId = (): string => {
     if (typeof window === 'undefined') return '';
 
     let sessionId = sessionStorage.getItem('lp_session_id');
@@ -44,7 +44,7 @@ const getDeviceType = (): string => {
 };
 
 // Parse UTM parameters from URL
-const getUtmParams = (): { utm_source?: string; utm_medium?: string; utm_campaign?: string } => {
+export const getUtmParams = (): { utm_source?: string; utm_medium?: string; utm_campaign?: string } => {
     if (typeof window === 'undefined') return {};
 
     const params = new URLSearchParams(window.location.search);
@@ -53,6 +53,27 @@ const getUtmParams = (): { utm_source?: string; utm_medium?: string; utm_campaig
         utm_medium: params.get('utm_medium') || undefined,
         utm_campaign: params.get('utm_campaign') || undefined,
     };
+};
+
+/**
+ * Generate conversion URL with tracking parameters
+ */
+export const getConversionUrl = (baseUrl: string): string => {
+    if (typeof window === 'undefined') return baseUrl;
+
+    const url = new URL(baseUrl);
+    const visitorId = getVisitorId();
+    const sessionId = getSessionId();
+    const utmParams = getUtmParams();
+
+    if (visitorId) url.searchParams.set('visitor_id', visitorId);
+    if (sessionId) url.searchParams.set('session_id', sessionId);
+
+    if (utmParams.utm_source) url.searchParams.set('utm_source', utmParams.utm_source);
+    if (utmParams.utm_medium) url.searchParams.set('utm_medium', utmParams.utm_medium);
+    if (utmParams.utm_campaign) url.searchParams.set('utm_campaign', utmParams.utm_campaign);
+
+    return url.toString();
 };
 
 // Session tracking state
@@ -110,7 +131,7 @@ export const trackPageView = async (pagePath?: string): Promise<void> => {
     currentScrollDepth = 0;
 
     try {
-        const { error } = await supabase
+        const { data, error } = await supabase
             .from('page_views')
             .insert({
                 session_id: sessionId,
@@ -120,12 +141,15 @@ export const trackPageView = async (pagePath?: string): Promise<void> => {
                 viewport_height: window.innerHeight,
                 scroll_depth: 0,
                 time_on_page: 0,
-            });
+            })
+            .select('id')
+            .single();
 
         if (error) {
             console.error('[Analytics] Page view error:', error);
-        } else {
-            console.log('[Analytics] Page view tracked successfully');
+        } else if (data) {
+            pageViewId = data.id;
+            console.log('[Analytics] Page view tracked successfully, id:', pageViewId);
         }
     } catch (error) {
         console.error('[Analytics] Page view tracking error:', error);

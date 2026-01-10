@@ -3,6 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { X, Check, ArrowRight, Clock } from "lucide-react";
+import { useAnalytics } from "./AnalyticsProvider";
+import { getConversionUrl } from "../lib/analytics";
 
 const optionA = [
     "Tentar adivinhar processos assistindo vídeos soltos",
@@ -18,6 +20,7 @@ const optionB = [
 ];
 
 export function FinalCTASection() {
+    const { trackCtaClick } = useAnalytics();
     return (
         <section
             className="py-24 md:py-32 relative overflow-hidden"
@@ -127,11 +130,12 @@ export function FinalCTASection() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
                     <motion.a
-                        href="https://forms.jessicamessias.com.br"
+                        href={getConversionUrl("https://forms.jessicamessias.com.br")}
                         target="_blank"
                         rel="noopener noreferrer"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
+                        onClick={() => trackCtaClick('final_cta_section', 'QUERO O DIAGNÓSTICO DO MEU NEGÓCIO')}
                         className="inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#A68B2A] text-[#0A0908] font-display font-bold tracking-wider uppercase rounded-lg px-10 py-5 text-lg hover:shadow-[0_0_60px_rgba(212,175,55,0.5)] transition-all"
                     >
                         QUERO O DIAGNÓSTICO DO MEU NEGÓCIO
