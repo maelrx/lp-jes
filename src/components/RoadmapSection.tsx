@@ -94,7 +94,7 @@ export function RoadmapSection() {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6 }}
                     >
-                        Método Novo Nível | 90 Dias
+                        Domus Pro
                     </motion.span>
 
                     <motion.h2

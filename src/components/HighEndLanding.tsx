@@ -25,7 +25,7 @@ import { TiltCard } from "./ui/TiltCard";
 import { HeroSection } from "./HeroSection";
 import { PainPointsSection } from "./PainPointsSection";
 import { RoadmapSection } from "./RoadmapSection";
-import { SocialProofSection } from "./SocialProofSection";
+
 import { ProcessSection } from "./ProcessSection";
 import { FinalCTASection } from "./FinalCTASection";
 import { ScrollAnimate } from "./ScrollAnimate";
@@ -97,13 +97,7 @@ export default function HighEndLanding() {
     return (
         <main className="min-h-screen bg-[#0A0908] text-[#F5F0E8] selection:bg-[#D4AF37] selection:text-[#0A0908] font-body">
 
-            {/* Top Bar */}
-            <div className="bg-gradient-to-r from-[#12100E] via-[#1E1B17] to-[#12100E] text-[#D4AF37] text-xs font-semibold tracking-[0.2em] uppercase text-center py-3 border-b border-[#D4AF37]/20 relative z-20">
-                <span className="inline-flex items-center gap-2">
-                    <span className="w-2 h-2 bg-[#D4AF37] rounded-full animate-pulse" />
-                    Restam apenas 4 diagnósticos gratuitos para esta semana
-                </span>
-            </div>
+
 
             {/* Header */}
             <header className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out py-3`}>
@@ -291,7 +285,7 @@ export default function HighEndLanding() {
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                         >
-                            Sistema desenvolvido em 7 anos de gestão prática. Implementável em 90 dias.
+                            Sistema desenvolvido em 7 anos de gestão prática. O diagnóstico analisa sua clínica em cada um desses pilares.
                         </motion.p>
                     </div>
 
@@ -300,26 +294,20 @@ export default function HighEndLanding() {
                             {
                                 icon: Lock,
                                 title: "GESTÃO AUTO-REGULÁVEL",
-                                before: "Equipe pergunta até decisões básicas. Nada funciona sem sua presença física.",
-                                result: "Equipe resolve 85-90% das situações sem sua intervenção.",
-                                quote: "\"Minha secretária hoje resolve sozinha. Antes ela me perguntava até sobre desconto de R$ 50.\"",
-                                author: "Dra. Carolina M., Dermatologista"
+                                analysis: "Nível de dependência da sua equipe, autonomia para decisões, processos documentados.",
+                                result: "Equipe resolve 85-90% das situações sem sua intervenção."
                             },
                             {
                                 icon: Gem,
                                 title: "CONVERSÃO PREMIUM",
-                                before: "20 leads semanais → 4 consultas. Conversão de 20%. Perda estimada: R$ 15 mil/mês.",
-                                result: "Taxa de conversão: 50-65% sem aumento de leads.",
-                                quote: "\"Conversão subiu de 35% para 68% em 60 dias. Minha secretária fecha sozinha.\"",
-                                author: "Dra. Beatriz L., Odontologia HOF"
+                                analysis: "Taxa de conversão atual, scripts utilizados, jornada do paciente.",
+                                result: "Taxa de conversão: 50-65% sem aumento de leads."
                             },
                             {
                                 icon: Star,
                                 title: "LIBERDADE OPERACIONAL",
-                                before: "Zero férias nos últimos 3 anos. Medo de viajar porque 'tudo vai desmoronar'.",
-                                result: "Capacidade de se ausentar por 15-30 dias com operação estável.",
-                                quote: "\"Primeira vez em 5 anos que tirei férias reais — 30 dias no Caribe.\"",
-                                author: "Ana Paula R., Biomédica Esteta"
+                                analysis: "Quanto a clínica depende da sua presença, capacidade de ausência, gestão por dados.",
+                                result: "Capacidade de se ausentar por 15-30 dias com operação estável."
                             }
                         ].map((pillar, i) => (
                             <ScrollAnimate key={i} delay={i + 1} className="h-full">
@@ -334,22 +322,16 @@ export default function HighEndLanding() {
                                         {pillar.title}
                                     </h3>
 
-                                    {/* Before */}
+                                    {/* O que analisamos */}
                                     <div className="mb-4">
-                                        <span className="text-[10px] text-[#6B6560] uppercase tracking-wider font-semibold">Situação Atual:</span>
-                                        <p className="text-[#A69F93] text-sm mt-1">{pillar.before}</p>
+                                        <span className="text-[10px] text-[#6B6560] uppercase tracking-wider font-semibold">O que analisamos:</span>
+                                        <p className="text-[#A69F93] text-sm mt-1">{pillar.analysis}</p>
                                     </div>
 
-                                    {/* Result */}
-                                    <div className="mb-6 p-4 bg-[#D4AF37]/10 rounded-xl border border-[#D4AF37]/20">
-                                        <span className="text-[10px] text-[#D4AF37] uppercase tracking-wider font-bold">Resultado:</span>
+                                    {/* Resultado possível */}
+                                    <div className="p-4 bg-[#D4AF37]/10 rounded-xl border border-[#D4AF37]/20">
+                                        <span className="text-[10px] text-[#D4AF37] uppercase tracking-wider font-bold">Resultado possível:</span>
                                         <p className="text-[#F5F0E8] text-sm font-medium mt-1">{pillar.result}</p>
-                                    </div>
-
-                                    {/* Quote */}
-                                    <div className="border-t border-[#D4AF37]/10 pt-4">
-                                        <p className="text-[#E8D5A3] font-display italic text-sm mb-2">{pillar.quote}</p>
-                                        <p className="text-[#6B6560] text-xs">— {pillar.author}</p>
                                     </div>
                                 </div>
                             </ScrollAnimate>
@@ -358,11 +340,8 @@ export default function HighEndLanding() {
                 </Container>
             </Section>
 
-            {/* 5. Roadmap Section (90 Days) */}
+            {/* 5. Roadmap Section (O Que Você Recebe) */}
             <RoadmapSection />
-
-            {/* 6. Social Proof Section (Case Study) */}
-            <SocialProofSection />
 
 
 
@@ -400,23 +379,23 @@ export default function HighEndLanding() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        <AccordionItem title="Quanto custa a mentoria completa?">
-                            R$ 9.000 à vista ou 10x no cartão. O diagnóstico é 100% gratuito.
+                        <AccordionItem title="O diagnóstico é realmente gratuito?">
+                            Sim, 100% gratuito. Não pedimos cartão, não tem pegadinha. É nossa forma de mostrar nosso nível de entrega antes de qualquer conversa sobre produtos.
                         </AccordionItem>
-                        <AccordionItem title="Tem garantia de resultado?">
-                            Garantia de método testado (R$ 0 a R$ 1M). Resultado depende de execução. Oferecemos 90 dias de suporte.
-                        </AccordionItem>
-                        <AccordionItem title="Não tenho tempo para mais uma coisa">
-                            Se você não criar tempo para estruturar, continuará no ciclo de incêndios. Investimento necessário: 2-3h/semana.
+                        <AccordionItem title="O que acontece depois do relatório?">
+                            Você recebe convite para um Meet Estratégico de 60 min com Jéssica. Na call, exploramos os gargalos ao vivo e, se houver fit, apresentamos opções de acompanhamento. Sem pressão.
                         </AccordionItem>
                         <AccordionItem title="Já fiz cursos que não funcionaram">
-                            Diferença crucial: Mentoria é implementação guiada com suporte, não apenas assistir vídeos.
+                            Entendemos. Por isso não vendemos "curso". Oferecemos programas de implementação com ferramentas prontas, acompanhamento real e métricas de progresso. Mas primeiro, o diagnóstico mostra se isso faz sentido pra você.
+                        </AccordionItem>
+                        <AccordionItem title="Não tenho tempo para mais uma coisa">
+                            O diagnóstico leva 8-12 minutos. Enquanto preparamos seu relatório, você tem acesso à área de membros com conteúdos curtos e práticos. Se você não criar tempo para estruturar, continuará no ciclo de incêndios.
                         </AccordionItem>
                         <AccordionItem title="Como sei se meu estágio é compatível?">
-                            O diagnóstico serve exatamente para isso. Mapeamos faturamento, margem e gargalos para confirmar o fit.
+                            O diagnóstico serve exatamente para isso. Mapeamos faturamento, margem e gargalos para entender seu momento. A partir daí, indicamos o caminho mais adequado (ou dizemos que não é a hora).
                         </AccordionItem>
-                        <AccordionItem title="Por que não mostra todo o conteúdo antes?">
-                            Cada clínica tem gargalos únicos. Entregar tudo geraria paralisia. O diagnóstico personaliza o remédio.
+                        <AccordionItem title="Por que tem limite de diagnósticos por semana?">
+                            Porque cada relatório passa por análise humana individualizada. Não usamos templates genéricos. Isso leva tempo e atenção, por isso limitamos a quantidade semanal.
                         </AccordionItem>
                     </motion.div>
                 </Container>

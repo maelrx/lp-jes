@@ -11,9 +11,10 @@ const optionA = [
 ];
 
 const optionB = [
-    "Diagnóstico exato de onde você está travada",
-    "Plano de 90 dias validado em 400+ clínicas",
-    "Acompanhamento para não deixar você desistir"
+    "Mapeamento completo dos gargalos da sua clínica",
+    "Impacto quantificado de cada problema (em R$ e horas)",
+    "Plano de ação personalizado para sua realidade",
+    "Acesso imediato à Área de Membros com conteúdo exclusivo"
 ];
 
 export function FinalCTASection() {
@@ -61,7 +62,7 @@ export function FinalCTASection() {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
-                        Você tem duas opções para os próximos 90 dias:
+                        Você tem duas opções agora:
                     </motion.p>
                 </div>
 
@@ -89,7 +90,7 @@ export function FinalCTASection() {
                         </ul>
                     </motion.div>
 
-                    {/* Option B - Sistema Novo Nível */}
+                    {/* Option B - Clareza Total */}
                     <motion.div
                         className="h-full rounded-2xl glass-card p-8 relative border-2 border-[#D4AF37]/50 shadow-[0_0_60px_rgba(212,175,55,0.15)]"
                         initial={{ opacity: 0, x: 30 }}
@@ -104,7 +105,7 @@ export function FinalCTASection() {
 
                         <h3 className="font-display font-semibold text-[#D4AF37] text-xl mb-6 flex items-center gap-3 mt-2">
                             <span className="w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#A68B2A] text-[#0A0908] flex items-center justify-center text-sm font-bold">B</span>
-                            Sistema Novo Nível
+                            Clareza Total em 5 Dias
                         </h3>
                         <ul className="space-y-4">
                             {optionB.map((item, i) => (
@@ -137,10 +138,9 @@ export function FinalCTASection() {
                         <ArrowRight className="w-6 h-6" />
                     </motion.a>
 
-                    {/* Scarcity */}
+                    {/* Zero custo */}
                     <div className="mt-6 flex items-center justify-center gap-2 text-[#D4AF37]/80">
-                        <Clock className="w-4 h-4" />
-                        <span className="text-sm">Apenas 4 diagnósticos gratuitos disponíveis para essa semana.</span>
+                        <span className="text-sm">Zero custo — 100% gratuito</span>
                     </div>
                 </motion.div>
             </div>
